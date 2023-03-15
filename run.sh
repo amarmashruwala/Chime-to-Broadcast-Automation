@@ -81,6 +81,7 @@ ffmpeg \
   -f x11grab \
     -i ${DISPLAY} \
   -f pulse \
+  -itsoffset 357ms \
     -ac 2 \
     -i default \
   -c:v libx264 \
@@ -91,7 +92,8 @@ ffmpeg \
     -minrate ${VIDEO_BITRATE} \
     -maxrate ${VIDEO_BITRATE} \
     -g ${VIDEO_GOP} \
-  -filter_complex "aresample=async=1000:min_hard_comp=0.100000:first_pts=0,adelay=delays=562|562" \
+  -filter_complex "aresample=async=1000:min_hard_comp=0.100000:first_pts=1" \
+  -async 1 \
   -c:a aac \
     -b:a ${AUDIO_BITRATE} \
     -ac ${AUDIO_CHANNELS} \
