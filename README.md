@@ -46,3 +46,9 @@ If you launched an EC2 instance to host the Docker container, you may also want 
 
 ## ECS Deplyoyment:
 
+## Prerequisites using Windows 10
+
+You will need the following on your local Machine
+1. Download and Install Copilot
+2. Download and install Dokcer Desktop 
+3. 
