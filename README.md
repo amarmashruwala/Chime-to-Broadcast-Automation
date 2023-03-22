@@ -44,6 +44,7 @@ $ docker kill bcast
 
 If you launched an EC2 instance to host the Docker container, you may also want to stop the instance to avoid incurring cost.
 
+
 ## ECS Deplyoment:
 
 ## Prerequisites using Windows 10
