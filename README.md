@@ -58,11 +58,11 @@ Run:
  ```
  copilot
  ```
- This should return with copilot commands
-2. Download and install Docker Desktop for Windows. Run Docker. Make sure WSL2 Linux kernal package 64 bit is installed on your Windows PC. (this is needed to run docker on Windows) 
-3. Install Git for Windows
-4. Install AWS CLI - check if aws clie is properly installed by running aws in powershell. It should return with some commands
-5. Windows Powershell
+ This should return with copilot commands  
+2. Download and install Docker Desktop for Windows. Run Docker. Make sure WSL2 Linux kernal package 64 bit is installed on your Windows PC. (this is needed to run docker on Windows)   
+3. Install Git for Windows  
+4. Install AWS CLI - check if aws clie is properly installed by running aws in powershell. It should return with some commands  
+6. Windows Powershell  
 
 ## Configuration
 
