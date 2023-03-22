@@ -82,7 +82,7 @@ Run:
  ```
  You will be prompted to enter your aws credentials. Copy your access key ID from the .svc file and enter it into the powershell prompt.  
  Next copy the secret key from the .svc file and again enter it into the powershell prompt.  
- Enter the default region name where you plan to deply in your account.  
+ Enter the default region name where you plan to deploy in your account.  
  
  
 
