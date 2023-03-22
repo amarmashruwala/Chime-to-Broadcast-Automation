@@ -57,6 +57,8 @@ You will need the following on your local Machine
 
 ## Configuration
 
-Create a new folder on your local drive
-* Clone this Github repository into the newly created folder 
+* Create a new folder on your local drive
+* Clone this Github repository into the newly created folder
+* Go to your AWS Account, IAM -> users -> security credentials, create and access key, and download the .csv file in a known location on your local Machine. (if not done already)
+*   
 
