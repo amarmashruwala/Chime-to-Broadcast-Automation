@@ -44,11 +44,16 @@ $ docker kill bcast
 
 If you launched an EC2 instance to host the Docker container, you may also want to stop the instance to avoid incurring cost.
 
-## ECS Deplyoyment:
+## ECS Deplyoment:
 
 ## Prerequisites using Windows 10
 
 You will need the following on your local Machine
 1. Download and Install Copilot
-2. Download and install Dokcer Desktop 
-3. 
+2. Download and install Docker Desktop for Windows. Run Docker. Make sure WSL2 Linux kernal package 64 bit is installed on your Windows PC. (this is needed to run docker on Windows) 
+3. Install Git for Windows
+4. Install AWS CLI
+
+## Configuration
+
+
