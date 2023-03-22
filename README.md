@@ -49,10 +49,19 @@ If you launched an EC2 instance to host the Docker container, you may also want 
 ## Prerequisites using Windows 10
 
 You will need the following on your local Machine
-1. Download and Install Copilot
+1. Download and Install Copilot. check if copilot is properly installed
+Run:
+ ``` 
+ New-Alias -Name “copilot” copilot-windows 
+ ``` 
+ Next enter:
+ ```
+ copilot
+ ```
+ This should return with copilot commands
 2. Download and install Docker Desktop for Windows. Run Docker. Make sure WSL2 Linux kernal package 64 bit is installed on your Windows PC. (this is needed to run docker on Windows) 
 3. Install Git for Windows
-4. Install AWS CLI
+4. Install AWS CLI - check if aws clie is properly installed by running aws in powershell. It should return with some commands
 5. Windows Powershell
 
 ## Configuration
@@ -65,5 +74,14 @@ You will need the following on your local Machine
  ``` 
  New-Alias -Name “copilot” copilot-windows 
  ``` 
- to give the copilot application an alias.    
+ This is to give the copilot application an alias.   
+ * Next we need to configure aws with our credentials. 
+ run:
+ ```
+ aws configure
+ ```
+ You will be prompted to enter your aws credentials. Copy your access key ID from the .svc file and enter it into the powershell prompt. Next copy the secret key from the .svc file and again enter it into the powershell prompt.  
+ Enter the default region name where you plan to deply in your account.  
+ 
+ 
 
