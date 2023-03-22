@@ -61,5 +61,9 @@ You will need the following on your local Machine
 * Clone this Github repository into the newly created folder
 * Go to your AWS Account, IAM -> users -> security credentials, create and access key, and download the .csv file in a known location on your local Machine. (if not done already) you will need your account credentials at a later stage.
 * Open Windows Powershell 
-* Run ``` New-Alias -Name “copilot” copilot-windows ``` to give the copilot application an alias.    
+* Run:
+ ``` 
+ New-Alias -Name “copilot” copilot-windows 
+ ``` 
+ to give the copilot application an alias.    
 
