@@ -58,5 +58,5 @@ You will need the following on your local Machine
 ## Configuration
 
 Create a new folder on your local drive
-Clone this Github repository into the newly created folder 
+* Clone this Github repository into the newly created folder 
 
