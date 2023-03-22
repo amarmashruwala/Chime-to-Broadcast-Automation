@@ -67,7 +67,7 @@ Run:
 ## Configuration
 
 * Create a new folder on your local drive
-* Clone this Github repository into the newly created folder
+* Clone this Github repository into the newly created folder. Example "GithubRepos"
 * Go to your AWS Account, IAM -> users -> security credentials, create and access key, and download the .csv file in a known location on your local Machine. (if not done already) you will need your account credentials at a later stage.
 * Open Windows Powershell 
 * Run:
@@ -83,9 +83,32 @@ Run:
  You will be prompted to enter your aws credentials. Copy your access key ID from the .svc file and enter it into the powershell prompt.  
  Next copy the secret key from the .svc file and again enter it into the powershell prompt.  
  * Enter the default region name where you plan to deploy in your account.  
- * skip default output format.  
+ * skip default output format.    
  
  Check your aws credentials.  
+ * You should now return to your C:\users\username folder. 
+ * check the contents of the folder to be sure you have an .aws folder within it. 
+ * check the contents of the .aws folder using ```ls ~/.aws``` You should see 2 files: Config, Credentials
+ *  Next run ```cat ~/.aws/credentials``` and press Tab. You should see access key ID and Secret Access key output on the screen.  
+ 
+ Next go to the folder where you cloned this Github repository. In my case it is GithubRepos.  
+ This where we start out deployment process. 
+ 
+ ## Initialize Application  
+ 
+ Make sure you have provided copilot with an Alias 
+ ```
+ New-Alias -Name “copilot” copilot-windows
+ copilot init 
+ 
+ ```
+ * Enter the name of your application.  
+ * Workload type: Backend service  
+ * Enter the name of your service  
+ * Type: Choose ./Dockerfile  
+ 
+ 
+ 
  
  
  
