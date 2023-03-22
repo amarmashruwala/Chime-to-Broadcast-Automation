@@ -1,6 +1,8 @@
-# Amazon Chime Meeting Broadcast Demo
+# chime-to-rtmp
 
 This repository contains a Docker container that, when started, will join an Amazon Chime meeting by PIN and broadcast the meeting's audio and video in high definition (1080p at 30fps) to an RTMP endpoint you specify. The broadcast participant joins the meeting in the muted state. The meeting PIN must be unlocked in order for the broadcast participant to join the meeting.
+
+## EC2 Deployment:
 
 ## Prerequisites
 
@@ -41,4 +43,6 @@ $ docker kill bcast
 ```
 
 If you launched an EC2 instance to host the Docker container, you may also want to stop the instance to avoid incurring cost.
+
+## ECS Deplyoyment:
 
