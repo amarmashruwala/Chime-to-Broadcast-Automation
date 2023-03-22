@@ -53,7 +53,10 @@ You will need the following on your local Machine
 2. Download and install Docker Desktop for Windows. Run Docker. Make sure WSL2 Linux kernal package 64 bit is installed on your Windows PC. (this is needed to run docker on Windows) 
 3. Install Git for Windows
 4. Install AWS CLI
+5. Windows Powershell
 
 ## Configuration
 
+Create a new folder on your local drive
+Clone this Github repository into the newly created folder 
 
