@@ -100,13 +100,75 @@ Run:
  ```
  New-Alias -Name “copilot” copilot-windows
  copilot init 
- 
  ```
  * Enter the name of your application.  
  * Workload type: Backend service  
  * Enter the name of your service  
  * Type: Choose ./Dockerfile  
- 
+
+Now copilot will:   
+* Write a manifest file - this will be placed into the service folder within the copilot folder. Open the Manifest file in notepad++ and change the default CPU and RAM to:
+```
+cpu: 8192    
+memory: 16384
+```
+* Save the manifest file. 
+* Copilot will create the infrastructure for your service. 
+* Would you like to deploy a Test Environment? (y/n) N  
+
+
+## Initialize the Environment
+
+To innitialize the invironment:
+```
+copilot env init 
+```
+* What is your environment name? Give it a name (in my case uit is Prod) 
+* Which credentials would you like to use to create Prod: select [profile default]
+* Enter on yes, use default  
+Next run: 
+
+```
+copilot app ls
+```
+This is to check if your environment was successfully created
+
+## Deploy your environment
+
+Next run:
+```
+copilot env deploy --name Prod 
+copilot env ls
+```  
+Copilot will create the infrastructure for your environment. 
+
+## Create your secrets (you need to create 2 secrets for MEETING_URL and RTMP_URL)  
+
+Next run:
+```
+copilot secret init
+```
+* What would you like to name this secret? MEETING_URL
+* What is the value of secret MEETING_URL in environment Prod? Provide the chime meeting URL
+* Copilot will output the first secret. Copy that output, go to your manifest.yml file, uncomment secrets, replace the 1st default secret with this secret you have just copied and save the manifest.  
+
+Do this Process again for the 2nd secret. 
+
+## EOL conversion of the Manifest.yml file and run.sh file
+
+* In Notepad++ go to edit > EOL Conversion > make sure it is set to Unix(LF) and save for both files. 
+
+## Deploy the application 
+Run:
+```
+copilot deploy  
+```   
+* Copilot will start building the docker image and push it to ECS.  
+* Next copilot will prose infrastructure changes for the stack and the application will be deployed.  
+* once deployed, the broadcast client will join your chime meeting ID and stream the output to the RTMP URL 
+
+
+
  
  
  
