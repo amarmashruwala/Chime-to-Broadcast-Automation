@@ -167,6 +167,58 @@ copilot deploy
 * Next copilot will prose infrastructure changes for the stack and the application will be deployed.  
 * once deployed, the broadcast client will join your chime meeting ID and stream the output to the RTMP URL 
 
+## Deleting the application using Copilot  
+
+To delete an application and environment:
+* check your application: this should display your app
+```
+copilot app ls
+```
+* next delete your application
+```
+copilot app delete 
+```
+* Select the name of the application you want to delete. 
+* Next check if everything is deleted
+```
+copilot app ls
+```
+* this should return without the application name in powershell 
+* Next check if the environment is deleted
+```
+copilot env ls
+```
+* This should return an error: Could not find any application in this region and account. Try initiating one with ‘copilot app init’
+* If you are deleting a deployment, ensure you also delete the Secrets from the Parameter store otherwise they will not connect to your redeployment. 
+
+## Deployment a new service in the same Cluster
+
+* When you start this process, instead of using ```copilot init``` use:
+```
+copilot svc init
+```
+* Next create new secrets for the new service 
+```
+copilot secret init
+```
+* create new secrets called MEETING_URL2, RTMP_URL2
+* Next change the secret labels in the newly created Manifest.yml, run.sh, and container.env example 
+* Deploy the new service
+```
+copilot svc deploy
+```
+* this will deploy another service under the same cluster. 
+
+## Delete a service (not an entire cluster) 
+
+To delete only a specific service run:
+```
+copilot svc delete
+```
+* select the name of the service to delete. this will delete just that service. Remember to delete the Secrets for that service from the Systems Manager Parameter Store. 
+
+
+
 
 
  
