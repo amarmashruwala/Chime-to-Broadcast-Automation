@@ -3,9 +3,10 @@ BROWSER_URL=${MEETING_URL}
 SCREEN_WIDTH=1920
 SCREEN_HEIGHT=1080
 SCREEN_RESOLUTION=${SCREEN_WIDTH}x${SCREEN_HEIGHT}
+CAPTURE_SCREEN_RESOLUTION=1920x1080
 COLOR_DEPTH=24
 X_SERVER_NUM=2
-VIDEO_BITRATE=10000
+VIDEO_BITRATE=6000
 VIDEO_FRAMERATE=30
 VIDEO_GOP=$((VIDEO_FRAMERATE * 2))
 AUDIO_BITRATE=160k
@@ -62,8 +63,26 @@ firefox \
   --ssb \
   "${BROWSER_URL}" \
   &
-sleep 0.5  # Ensure this has started before moving on
-xdotool mousemove 1 1 click 1  # Move mouse out of the way so it doesn't trigger the "pause" overlay on the video tile
+sleep 10  # Ensure this has started before moving on, waiting for loading the Chime web app
+xdotool key Return #Select yes for the pop-up window of "Would you like to open this link with Chime app?"
+sleep 3
+xdotool key Escape #Close the pop-up window
+sleep 3
+xdotool type Livestream #Type "Livestream" on the name input field
+sleep 3
+xdotool key Tab #Move to "join the meeting" button
+sleep 3
+xdotool key Return #Click "join the meeting" button
+sleep 3
+xdotool key Return #Close the pop-up window once again
+sleep 3
+xdotool key Escape #Close the pop-up window once again
+sleep 3
+xdotool key Return #Click "Use system audio" setting
+sleep 3
+xdotool key Escape #Close warning message
+sleep 3
+xdotool mousemove 1 1 click 1  # Move mouse out of the way so it doesn't trigger the "pause" overlay on the video tile  
 
 # Start ffmpeg to transcode the capture from the X11 framebuffer and the
 # PulseAudio virtual sound device we created earlier and send that to the RTMP
@@ -75,15 +94,15 @@ xdotool mousemove 1 1 click 1  # Move mouse out of the way so it doesn't trigger
 ffmpeg \
   -hide_banner -loglevel error \
   -nostdin \
-  -s ${SCREEN_RESOLUTION} \
+  -s ${CAPTURE_SCREEN_RESOLUTION} \
   -r ${VIDEO_FRAMERATE} \
   -draw_mouse 0 \
   -f x11grab \
     -i ${DISPLAY} \
   -f pulse \
-  -itsoffset 357ms \
     -ac 2 \
     -i default \
+    -vf "crop=1600:980:0:1080" \
   -c:v libx264 \
     -pix_fmt yuv420p \
     -profile:v main \
