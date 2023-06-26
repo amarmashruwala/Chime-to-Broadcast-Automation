@@ -105,8 +105,8 @@ ffmpeg \
     -vf "crop=1600:980:0:1080,scale=1920:1080" \
   -c:v libx264 \
     -pix_fmt yuv420p \
-    -profile:v main \
-    -preset slow \
+    -profile:v high \
+    -preset superfast \
     -x264opts "nal-hrd=cbr:no-scenecut" \
     -minrate ${VIDEO_BITRATE} \
     -maxrate ${VIDEO_BITRATE} \
