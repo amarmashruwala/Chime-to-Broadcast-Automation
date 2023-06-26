@@ -67,19 +67,19 @@ sleep 10  # Ensure this has started before moving on, waiting for loading the Ch
 xdotool key Return #Select yes for the pop-up window of "Would you like to open this link with Chime app?"
 sleep 3
 xdotool key Escape #Close the pop-up window
-sleep 3
+sleep 5
 xdotool type Livestream #Type "Livestream" on the name input field
-sleep 3
+sleep 5
 xdotool key Tab #Move to "join the meeting" button
 sleep 3
 xdotool key Return #Click "join the meeting" button
-sleep 3
+sleep 5
 xdotool key Return #Close the pop-up window once again
 sleep 3
 xdotool key Escape #Close the pop-up window once again
-sleep 3
+sleep 5
 xdotool key Return #Click "Use system audio" setting
-sleep 3
+sleep 5
 xdotool key Escape #Close warning message
 sleep 3
 xdotool mousemove 1 1 click 1  # Move mouse out of the way so it doesn't trigger the "pause" overlay on the video tile  
@@ -107,6 +107,7 @@ ffmpeg \
     -pix_fmt yuv420p \
     -profile:v high \
     -preset superfast \
+    -tune zerolatency \
     -x264opts "nal-hrd=cbr:no-scenecut" \
     -minrate ${VIDEO_BITRATE} \
     -maxrate ${VIDEO_BITRATE} \
@@ -118,4 +119,3 @@ ffmpeg \
     -ac ${AUDIO_CHANNELS} \
     -ar ${AUDIO_SAMPLERATE} \
   -f flv ${RTMP_URL}
-
