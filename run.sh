@@ -102,7 +102,7 @@ ffmpeg \
   -f pulse \
     -ac 2 \
     -i default \
-    -vf "crop=1600:980:0:1080" \
+    -vf "crop=1600:980:0:1080,scale=1920:1080" \
   -c:v libx264 \
     -pix_fmt yuv420p \
     -profile:v main \
