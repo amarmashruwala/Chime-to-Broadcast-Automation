@@ -64,6 +64,8 @@ firefox \
   "${BROWSER_URL}" \
   &
 sleep 10  # Ensure this has started before moving on, waiting for loading the Chime web app
+id=$(xdotool search --onlyvisible --name Firefox)
+xdotool windowfocus --sync $id
 xdotool key Return #Select yes for the pop-up window of "Would you like to open this link with Chime app?"
 sleep 3
 xdotool key Escape #Close the pop-up window
